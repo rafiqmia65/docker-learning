@@ -1,263 +1,120 @@
-# Docker Command List
+# 🐳 Docker Command List
 
-A simple and beginner-friendly Docker command reference.
+A clean and beginner-friendly Docker command reference.
 
 ---
 
-# 📦 Docker Basics
+# 📦 Docker Basics Commands
 
-## Check Docker Version
-
-```bash
-docker --version
-```
-
-````
-
-## Show Docker Information
-
-```bash
-docker info
-```
+| Command            | Description                    |
+| ------------------ | ------------------------------ |
+| `docker --version` | Show Docker version            |
+| `docker info`      | Show Docker system information |
 
 ---
 
 # 🖼️ Docker Image Commands
 
-## Show All Images
-
-```bash
-docker images
-```
-
-## Build Docker Image
-
-```bash
-docker build -t my-image .
-```
-
-## Remove Docker Image
-
-```bash
-docker rmi my-image
-```
-
-## Remove Image Forcefully
-
-```bash
-docker rmi -f my-image
-```
+| Command                      | Description                    |
+| ---------------------------- | ------------------------------ |
+| `docker images`              | Show all images                |
+| `docker pull image-name`     | Download image from Docker Hub |
+| `docker build -t my-image .` | Build Docker image             |
+| `docker rmi my-image`        | Remove image                   |
+| `docker rmi -f my-image`     | Force remove image             |
+| `docker image prune`         | Remove unused images           |
 
 ---
 
 # 📦 Docker Container Commands
 
-## Run Container
-
-```bash
-docker run my-image
-```
-
-## Run Container with Port Mapping
-
-```bash
-docker run -p 5000:5000 my-image
-```
-
-## Run Container with Name
-
-```bash
-docker run --name my-container -p 5000:5000 my-image
-```
-
-## Run Container in Background
-
-```bash
-docker run -d my-image
-```
-
-## Show Running Containers
-
-```bash
-docker ps
-```
-
-## Show All Containers
-
-```bash
-docker ps -a
-```
-
-## Stop Container
-
-```bash
-docker stop my-container
-```
-
-## Start Container
-
-```bash
-docker start my-container
-```
-
-## Restart Container
-
-```bash
-docker restart my-container
-```
-
-## Remove Container
-
-```bash
-docker rm my-container
-```
-
-## Force Remove Container
-
-```bash
-docker rm -f my-container
-```
+| Command                                   | Description             |
+| ----------------------------------------- | ----------------------- |
+| `docker run my-image`                     | Run container           |
+| `docker run -p 5000:5000 my-image`        | Run with port mapping   |
+| `docker run --name my-container my-image` | Run with custom name    |
+| `docker run -d my-image`                  | Run in detached mode    |
+| `docker ps`                               | Show running containers |
+| `docker ps -a`                            | Show all containers     |
+| `docker stop my-container`                | Stop container          |
+| `docker start my-container`               | Start container         |
+| `docker restart my-container`             | Restart container       |
+| `docker rm my-container`                  | Remove container        |
+| `docker rm -f my-container`               | Force remove container  |
 
 ---
 
 # 📄 Docker Logs Commands
 
-## Show Container Logs
-
-```bash
-docker logs my-container
-```
-
-## Live Logs
-
-```bash
-docker logs -f my-container
-```
+| Command                       | Description         |
+| ----------------------------- | ------------------- |
+| `docker logs my-container`    | Show container logs |
+| `docker logs -f my-container` | Show live logs      |
 
 ---
 
 # 💻 Docker Exec Commands
 
-## Access Container Terminal
-
-```bash
-docker exec -it my-container sh
-```
-
-## Access Bash Terminal
-
-```bash
-docker exec -it my-container bash
-```
+| Command                             | Description                 |
+| ----------------------------------- | --------------------------- |
+| `docker exec -it my-container sh`   | Open shell inside container |
+| `docker exec -it my-container bash` | Open bash terminal          |
 
 ---
 
 # 📁 Docker Volume Commands
 
-## Show Volumes
-
-```bash
-docker volume ls
-```
-
-## Create Volume
-
-```bash
-docker volume create my-volume
-```
-
-## Remove Volume
-
-```bash
-docker volume rm my-volume
-```
+| Command                          | Description      |
+| -------------------------------- | ---------------- |
+| `docker volume ls`               | Show all volumes |
+| `docker volume create my-volume` | Create volume    |
+| `docker volume rm my-volume`     | Remove volume    |
 
 ---
 
 # 🌐 Docker Network Commands
 
-## Show Networks
-
-```bash
-docker network ls
-```
-
-## Create Network
-
-```bash
-docker network create my-network
-```
-
-## Remove Network
-
-```bash
-docker network rm my-network
-```
+| Command                            | Description    |
+| ---------------------------------- | -------------- |
+| `docker network ls`                | Show networks  |
+| `docker network create my-network` | Create network |
+| `docker network rm my-network`     | Remove network |
 
 ---
 
 # 🐳 Docker Compose Commands
 
-## Start Services
-
-```bash
-docker compose up
-```
-
-## Start in Background
-
-```bash
-docker compose up -d
-```
-
-## Stop Services
-
-```bash
-docker compose down
-```
-
-## Rebuild Containers
-
-```bash
-docker compose up --build
-```
+| Command                     | Description         |
+| --------------------------- | ------------------- |
+| `docker compose up`         | Start services      |
+| `docker compose up -d`      | Start in background |
+| `docker compose down`       | Stop services       |
+| `docker compose up --build` | Rebuild and start   |
 
 ---
 
 # 🧹 Docker Cleanup Commands
 
-## Remove Stopped Containers
-
-```bash
-docker container prune
-```
-
-## Remove Unused Images
-
-```bash
-docker image prune
-```
-
-## Remove Everything Unused
-
-```bash
-docker system prune
-```
-
-## Remove Everything Forcefully
-
-```bash
-docker system prune -a
-```
+| Command                  | Description               |
+| ------------------------ | ------------------------- |
+| `docker container prune` | Remove stopped containers |
+| `docker image prune`     | Remove unused images      |
+| `docker system prune`    | Remove unused Docker data |
+| `docker system prune -a` | Remove everything unused  |
 
 ---
 
-# 🚀 Useful Commands
+# 🚀 Useful Docker Commands
 
-## Build and Run
+## Build Image
 
 ```bash
 docker build -t my-image .
+```
+
+## Run Container
+
+```bash
 docker run -p 5000:5000 my-image
 ```
 
@@ -294,5 +151,4 @@ CMD ["node", "src/server.js"]
 # 👨‍💻 Author
 
 Md Rafiq Mia
-Full Stack Developer (MERN • Next.js • Docker)
-````
+Full Stack Developer
