@@ -4,8 +4,9 @@ FROM node:20-alpine
 # Project working directory
 WORKDIR /app
 
+ARG APP_ENV=development
 # Set production environment
-ENV NODE_ENV=production
+ENV NODE_ENV=${APP_ENV}
 
 # =========================
 # Enable pnpm via corepack
@@ -16,10 +17,10 @@ RUN corepack enable
 # Copy dependency files
 #
 # pnpm  -> package.json + pnpm-lock.yaml
-# npm   -> package.json + package-lock.json
+# npm   -> package.json package-lock.json ./
 # yarn  -> package.json + yarn.lock
 # =========================================================
-COPY package.json pnpm-lock.yaml ./
+COPY package.json package-lock.json ./
 
 # =========================================================
 # Install dependencies
@@ -33,7 +34,7 @@ COPY package.json pnpm-lock.yaml ./
 # yarn:
 # RUN yarn install --production --frozen-lockfile
 # =========================================================
-RUN pnpm install --frozen-lockfile --prod
+RUN npm ci --only=production
 
 # Copy all project files
 COPY . .
